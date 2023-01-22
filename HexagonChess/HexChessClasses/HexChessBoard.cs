@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HexagonChess.HexChessClasses.HexChessPieces;
+using HexagonChess.HexChessClasses.HexChessPieces.Pieces;
+using HexagonChess.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace HexagonChess.HexChessClasses
 {
-    internal class HexChessBoard
+    public class HexChessBoard
     {
         private Dictionary<string, Button> cells;
+        private Dictionary<string, HexChessPiece> pieces;
 
         public HexChessBoard(HexChessClient tmp)
         {
@@ -129,8 +133,68 @@ namespace HexagonChess.HexChessClasses
                 //
                 { "-4;-1", tmp.cN4N1 }
             };
+            SetUpBoard();
         }
 
         public Dictionary<string, Button> Cells { get => cells; set => cells = value; }
+        internal Dictionary<string, HexChessPiece> Pieces { get => pieces; set => pieces = value; }
+
+        private void SetUpBoard()
+        {
+            Pieces = new Dictionary<string, HexChessPiece>()
+            {
+                { "WPawn4", new Pawn(false, new Point(-1, 2)) },
+                { "WPawn5", new Pawn(false, new Point(0, 1), false) },
+                { "WPawn6", new Pawn(false, new Point(1, 1)) }
+            };
+            foreach (var item in Pieces.Values)
+            {
+                cells.Where(e => e.Key == $"{item.Location.X};{item.Location.Y}").First().Value.BackColor = Color.Red;
+            }
+        }
+
+        public void AddMoves(int x, int y)
+        {
+            var piece = Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value;
+            piece.CalculateMoves();
+            foreach (var item in piece.AvailableMoves)
+            {
+                var tmp = cells[$"{item.X};{item.Y}"];
+                tmp.Visible = true;
+                tmp.BackgroundImage = Resources.point;
+                tmp.Enabled = true;
+            }
+        }
+
+        public void MovePiece(int x, int y)
+        {
+            var selectedPiece = Pieces.Where(e => e.Value.IsSelected).First().Value;
+            var currentCell = cells[$"{selectedPiece.Location.X};{selectedPiece.Location.Y}"];
+            var targetCell = cells[$"{x};{y}"];
+
+            targetCell.BackgroundImage = selectedPiece.Image;
+            targetCell.Enabled = true;
+            targetCell.Visible = true;
+
+            currentCell.BackgroundImage = null;
+            currentCell.Enabled = false;
+            currentCell.Visible = false;
+
+            foreach (var item in selectedPiece.AvailableMoves)
+            {
+                if (item.X != x || item.Y != y)
+                { 
+                    var tmp = cells[$"{item.X};{item.Y}"];
+                    tmp.BackgroundImage = null;
+                    tmp.Enabled = false;
+                    tmp.Visible = false;
+                }
+            }
+
+            selectedPiece.Location = new Point(x, y);
+            selectedPiece.IsSelected = false;
+            if (selectedPiece.FirstMove)
+                selectedPiece.FirstMove = false;
+        }
     }
 }
