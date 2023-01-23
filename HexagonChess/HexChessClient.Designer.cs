@@ -132,6 +132,7 @@
             this.c05.Size = new System.Drawing.Size(34, 41);
             this.c05.TabIndex = 0;
             this.c05.UseVisualStyleBackColor = false;
+            this.c05.Click += new System.EventHandler(this.c05_Click);
             // 
             // cN15
             // 
@@ -143,6 +144,7 @@
             this.cN15.Size = new System.Drawing.Size(34, 41);
             this.cN15.TabIndex = 1;
             this.cN15.UseVisualStyleBackColor = false;
+            this.cN15.Click += new System.EventHandler(this.cN15_Click);
             // 
             // c04
             // 
@@ -154,6 +156,7 @@
             this.c04.Size = new System.Drawing.Size(34, 41);
             this.c04.TabIndex = 3;
             this.c04.UseVisualStyleBackColor = false;
+            this.c04.Click += new System.EventHandler(this.c04_Click);
             // 
             // c14
             // 
@@ -165,6 +168,7 @@
             this.c14.Size = new System.Drawing.Size(34, 41);
             this.c14.TabIndex = 2;
             this.c14.UseVisualStyleBackColor = false;
+            this.c14.Click += new System.EventHandler(this.c14_Click);
             // 
             // c02
             // 
@@ -176,6 +180,7 @@
             this.c02.Size = new System.Drawing.Size(34, 41);
             this.c02.TabIndex = 7;
             this.c02.UseVisualStyleBackColor = false;
+            this.c02.Click += new System.EventHandler(this.c02_Click);
             // 
             // c12
             // 
@@ -187,6 +192,7 @@
             this.c12.Size = new System.Drawing.Size(34, 41);
             this.c12.TabIndex = 6;
             this.c12.UseVisualStyleBackColor = false;
+            this.c12.Click += new System.EventHandler(this.c12_Click);
             // 
             // cN13
             // 
@@ -198,6 +204,7 @@
             this.cN13.Size = new System.Drawing.Size(34, 41);
             this.cN13.TabIndex = 5;
             this.cN13.UseVisualStyleBackColor = false;
+            this.cN13.Click += new System.EventHandler(this.cN13_Click);
             // 
             // c03
             // 
@@ -209,6 +216,7 @@
             this.c03.Size = new System.Drawing.Size(34, 41);
             this.c03.TabIndex = 4;
             this.c03.UseVisualStyleBackColor = false;
+            this.c03.Click += new System.EventHandler(this.c03_Click);
             // 
             // c0N2
             // 
@@ -220,6 +228,7 @@
             this.c0N2.Size = new System.Drawing.Size(34, 41);
             this.c0N2.TabIndex = 15;
             this.c0N2.UseVisualStyleBackColor = false;
+            this.c0N2.Click += new System.EventHandler(this.c0N2_Click);
             // 
             // c1N2
             // 
@@ -231,6 +240,7 @@
             this.c1N2.Size = new System.Drawing.Size(34, 41);
             this.c1N2.TabIndex = 14;
             this.c1N2.UseVisualStyleBackColor = false;
+            this.c1N2.Click += new System.EventHandler(this.c1N2_Click);
             // 
             // cN1N1
             // 
@@ -242,6 +252,7 @@
             this.cN1N1.Size = new System.Drawing.Size(34, 41);
             this.cN1N1.TabIndex = 13;
             this.cN1N1.UseVisualStyleBackColor = false;
+            this.cN1N1.Click += new System.EventHandler(this.cN1N1_Click);
             // 
             // c0N1
             // 
@@ -313,6 +324,7 @@
             this.c0N4.Size = new System.Drawing.Size(34, 41);
             this.c0N4.TabIndex = 19;
             this.c0N4.UseVisualStyleBackColor = false;
+            this.c0N4.Click += new System.EventHandler(this.c0N4_Click);
             // 
             // c1N4
             // 
@@ -324,6 +336,7 @@
             this.c1N4.Size = new System.Drawing.Size(34, 41);
             this.c1N4.TabIndex = 18;
             this.c1N4.UseVisualStyleBackColor = false;
+            this.c1N4.Click += new System.EventHandler(this.c1N4_Click);
             // 
             // cN1N3
             // 
@@ -335,6 +348,7 @@
             this.cN1N3.Size = new System.Drawing.Size(34, 41);
             this.cN1N3.TabIndex = 17;
             this.cN1N3.UseVisualStyleBackColor = false;
+            this.cN1N3.Click += new System.EventHandler(this.cN1N3_Click);
             // 
             // c0N3
             // 
@@ -346,6 +360,7 @@
             this.c0N3.Size = new System.Drawing.Size(34, 41);
             this.c0N3.TabIndex = 16;
             this.c0N3.UseVisualStyleBackColor = false;
+            this.c0N3.Click += new System.EventHandler(this.c0N3_Click);
             // 
             // c0N5
             // 
@@ -357,6 +372,7 @@
             this.c0N5.Size = new System.Drawing.Size(34, 41);
             this.c0N5.TabIndex = 22;
             this.c0N5.UseVisualStyleBackColor = false;
+            this.c0N5.Click += new System.EventHandler(this.c0N5_Click);
             // 
             // c1N5
             // 
@@ -368,17 +384,19 @@
             this.c1N5.Size = new System.Drawing.Size(34, 41);
             this.c1N5.TabIndex = 21;
             this.c1N5.UseVisualStyleBackColor = false;
+            this.c1N5.Click += new System.EventHandler(this.c1N5_Click);
             // 
             // cN1N4
             // 
             this.cN1N4.BackColor = System.Drawing.Color.Transparent;
             this.cN1N4.BackgroundImage = global::HexagonChess.Properties.Resources.BQueen;
             this.cN1N4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cN1N4.Location = new System.Drawing.Point(182, 33);
+            this.cN1N4.Location = new System.Drawing.Point(181, 33);
             this.cN1N4.Name = "cN1N4";
             this.cN1N4.Size = new System.Drawing.Size(34, 41);
             this.cN1N4.TabIndex = 20;
             this.cN1N4.UseVisualStyleBackColor = false;
+            this.cN1N4.Click += new System.EventHandler(this.cN1N4_Click);
             // 
             // c4N4
             // 
@@ -389,8 +407,8 @@
             this.c4N4.Name = "c4N4";
             this.c4N4.Size = new System.Drawing.Size(34, 41);
             this.c4N4.TabIndex = 30;
-            this.c4N4.Text = "1";
             this.c4N4.UseVisualStyleBackColor = false;
+            this.c4N4.Click += new System.EventHandler(this.c4N4_Click);
             // 
             // c5N4
             // 
@@ -401,8 +419,8 @@
             this.c5N4.Name = "c5N4";
             this.c5N4.Size = new System.Drawing.Size(34, 41);
             this.c5N4.TabIndex = 29;
-            this.c5N4.Text = "1";
             this.c5N4.UseVisualStyleBackColor = false;
+            this.c5N4.Click += new System.EventHandler(this.c5N4_Click);
             // 
             // c3N3
             // 
@@ -413,8 +431,8 @@
             this.c3N3.Name = "c3N3";
             this.c3N3.Size = new System.Drawing.Size(34, 41);
             this.c3N3.TabIndex = 28;
-            this.c3N3.Text = "1";
             this.c3N3.UseVisualStyleBackColor = false;
+            this.c3N3.Click += new System.EventHandler(this.c3N3_Click);
             // 
             // c4N3
             // 
@@ -425,8 +443,8 @@
             this.c4N3.Name = "c4N3";
             this.c4N3.Size = new System.Drawing.Size(34, 41);
             this.c4N3.TabIndex = 27;
-            this.c4N3.Text = "1";
             this.c4N3.UseVisualStyleBackColor = false;
+            this.c4N3.Click += new System.EventHandler(this.c4N3_Click);
             // 
             // c4N2
             // 
@@ -437,8 +455,8 @@
             this.c4N2.Name = "c4N2";
             this.c4N2.Size = new System.Drawing.Size(34, 41);
             this.c4N2.TabIndex = 26;
-            this.c4N2.Text = "1";
             this.c4N2.UseVisualStyleBackColor = false;
+            this.c4N2.Click += new System.EventHandler(this.c4N2_Click);
             // 
             // c5N2
             // 
@@ -449,8 +467,8 @@
             this.c5N2.Name = "c5N2";
             this.c5N2.Size = new System.Drawing.Size(34, 41);
             this.c5N2.TabIndex = 25;
-            this.c5N2.Text = "1";
             this.c5N2.UseVisualStyleBackColor = false;
+            this.c5N2.Click += new System.EventHandler(this.c5N2_Click);
             // 
             // c3N1
             // 
@@ -461,8 +479,8 @@
             this.c3N1.Name = "c3N1";
             this.c3N1.Size = new System.Drawing.Size(34, 41);
             this.c3N1.TabIndex = 24;
-            this.c3N1.Text = "1";
             this.c3N1.UseVisualStyleBackColor = false;
+            this.c3N1.Click += new System.EventHandler(this.c3N1_Click);
             // 
             // c4N1
             // 
@@ -473,8 +491,8 @@
             this.c4N1.Name = "c4N1";
             this.c4N1.Size = new System.Drawing.Size(34, 41);
             this.c4N1.TabIndex = 23;
-            this.c4N1.Text = "1";
             this.c4N1.UseVisualStyleBackColor = false;
+            this.c4N1.Click += new System.EventHandler(this.c4N1_Click);
             // 
             // c40
             // 
@@ -485,8 +503,8 @@
             this.c40.Name = "c40";
             this.c40.Size = new System.Drawing.Size(34, 41);
             this.c40.TabIndex = 34;
-            this.c40.Text = "1";
             this.c40.UseVisualStyleBackColor = false;
+            this.c40.Click += new System.EventHandler(this.c40_Click);
             // 
             // c50
             // 
@@ -497,8 +515,8 @@
             this.c50.Name = "c50";
             this.c50.Size = new System.Drawing.Size(34, 41);
             this.c50.TabIndex = 33;
-            this.c50.Text = "1";
             this.c50.UseVisualStyleBackColor = false;
+            this.c50.Click += new System.EventHandler(this.c50_Click);
             // 
             // c31
             // 
@@ -510,6 +528,7 @@
             this.c31.Size = new System.Drawing.Size(34, 41);
             this.c31.TabIndex = 32;
             this.c31.UseVisualStyleBackColor = false;
+            this.c31.Click += new System.EventHandler(this.c31_Click);
             // 
             // c41
             // 
@@ -521,6 +540,7 @@
             this.c41.Size = new System.Drawing.Size(34, 41);
             this.c41.TabIndex = 31;
             this.c41.UseVisualStyleBackColor = false;
+            this.c41.Click += new System.EventHandler(this.c41_Click);
             // 
             // c5N1
             // 
@@ -531,8 +551,8 @@
             this.c5N1.Name = "c5N1";
             this.c5N1.Size = new System.Drawing.Size(34, 41);
             this.c5N1.TabIndex = 37;
-            this.c5N1.Text = "1";
             this.c5N1.UseVisualStyleBackColor = false;
+            this.c5N1.Click += new System.EventHandler(this.c5N1_Click);
             // 
             // c5N5
             // 
@@ -543,8 +563,8 @@
             this.c5N5.Name = "c5N5";
             this.c5N5.Size = new System.Drawing.Size(34, 41);
             this.c5N5.TabIndex = 36;
-            this.c5N5.Text = "1";
             this.c5N5.UseVisualStyleBackColor = false;
+            this.c5N5.Click += new System.EventHandler(this.c5N5_Click);
             // 
             // c5N3
             // 
@@ -555,8 +575,8 @@
             this.c5N3.Name = "c5N3";
             this.c5N3.Size = new System.Drawing.Size(34, 41);
             this.c5N3.TabIndex = 35;
-            this.c5N3.Text = "1";
             this.c5N3.UseVisualStyleBackColor = false;
+            this.c5N3.Click += new System.EventHandler(this.c5N3_Click);
             // 
             // c32
             // 
@@ -568,6 +588,7 @@
             this.c32.Size = new System.Drawing.Size(34, 41);
             this.c32.TabIndex = 40;
             this.c32.UseVisualStyleBackColor = false;
+            this.c32.Click += new System.EventHandler(this.c32_Click);
             // 
             // c3N2
             // 
@@ -578,8 +599,8 @@
             this.c3N2.Name = "c3N2";
             this.c3N2.Size = new System.Drawing.Size(34, 41);
             this.c3N2.TabIndex = 39;
-            this.c3N2.Text = "1";
             this.c3N2.UseVisualStyleBackColor = false;
+            this.c3N2.Click += new System.EventHandler(this.c3N2_Click);
             // 
             // c30
             // 
@@ -590,8 +611,8 @@
             this.c30.Name = "c30";
             this.c30.Size = new System.Drawing.Size(34, 41);
             this.c30.TabIndex = 38;
-            this.c30.Text = "1";
             this.c30.UseVisualStyleBackColor = false;
+            this.c30.Click += new System.EventHandler(this.c30_Click);
             // 
             // c3N5
             // 
@@ -603,6 +624,7 @@
             this.c3N5.Size = new System.Drawing.Size(34, 41);
             this.c3N5.TabIndex = 43;
             this.c3N5.UseVisualStyleBackColor = false;
+            this.c3N5.Click += new System.EventHandler(this.c3N5_Click);
             // 
             // c2N4
             // 
@@ -614,6 +636,7 @@
             this.c2N4.Size = new System.Drawing.Size(34, 41);
             this.c2N4.TabIndex = 42;
             this.c2N4.UseVisualStyleBackColor = false;
+            this.c2N4.Click += new System.EventHandler(this.c2N4_Click);
             // 
             // c3N4
             // 
@@ -625,6 +648,7 @@
             this.c3N4.Size = new System.Drawing.Size(34, 41);
             this.c3N4.TabIndex = 41;
             this.c3N4.UseVisualStyleBackColor = false;
+            this.c3N4.Click += new System.EventHandler(this.c3N4_Click);
             // 
             // c4N5
             // 
@@ -636,6 +660,7 @@
             this.c4N5.Size = new System.Drawing.Size(34, 41);
             this.c4N5.TabIndex = 44;
             this.c4N5.UseVisualStyleBackColor = false;
+            this.c4N5.Click += new System.EventHandler(this.c4N5_Click);
             // 
             // cN3N2
             // 
@@ -647,6 +672,7 @@
             this.cN3N2.Size = new System.Drawing.Size(34, 41);
             this.cN3N2.TabIndex = 52;
             this.cN3N2.UseVisualStyleBackColor = false;
+            this.cN3N2.Click += new System.EventHandler(this.cN3N2_Click);
             // 
             // cN3N1
             // 
@@ -658,6 +684,7 @@
             this.cN3N1.Size = new System.Drawing.Size(34, 41);
             this.cN3N1.TabIndex = 51;
             this.cN3N1.UseVisualStyleBackColor = false;
+            this.cN3N1.Click += new System.EventHandler(this.cN3N1_Click);
             // 
             // cN35
             // 
@@ -669,6 +696,7 @@
             this.cN35.Size = new System.Drawing.Size(34, 41);
             this.cN35.TabIndex = 50;
             this.cN35.UseVisualStyleBackColor = false;
+            this.cN35.Click += new System.EventHandler(this.cN35_Click);
             // 
             // cN31
             // 
@@ -679,8 +707,8 @@
             this.cN31.Name = "cN31";
             this.cN31.Size = new System.Drawing.Size(34, 41);
             this.cN31.TabIndex = 49;
-            this.cN31.Text = "1";
             this.cN31.UseVisualStyleBackColor = false;
+            this.cN31.Click += new System.EventHandler(this.cN31_Click);
             // 
             // cN33
             // 
@@ -691,8 +719,8 @@
             this.cN33.Name = "cN33";
             this.cN33.Size = new System.Drawing.Size(34, 41);
             this.cN33.TabIndex = 48;
-            this.cN33.Text = "1";
             this.cN33.UseVisualStyleBackColor = false;
+            this.cN33.Click += new System.EventHandler(this.cN33_Click);
             // 
             // cN34
             // 
@@ -704,6 +732,7 @@
             this.cN34.Size = new System.Drawing.Size(34, 41);
             this.cN34.TabIndex = 47;
             this.cN34.UseVisualStyleBackColor = false;
+            this.cN34.Click += new System.EventHandler(this.cN34_Click);
             // 
             // cN30
             // 
@@ -714,8 +743,8 @@
             this.cN30.Name = "cN30";
             this.cN30.Size = new System.Drawing.Size(34, 41);
             this.cN30.TabIndex = 46;
-            this.cN30.Text = "1";
             this.cN30.UseVisualStyleBackColor = false;
+            this.cN30.Click += new System.EventHandler(this.cN30_Click);
             // 
             // cN32
             // 
@@ -726,8 +755,8 @@
             this.cN32.Name = "cN32";
             this.cN32.Size = new System.Drawing.Size(34, 41);
             this.cN32.TabIndex = 45;
-            this.cN32.Text = "1";
             this.cN32.UseVisualStyleBackColor = false;
+            this.cN32.Click += new System.EventHandler(this.cN32_Click);
             // 
             // cN4N1
             // 
@@ -739,6 +768,7 @@
             this.cN4N1.Size = new System.Drawing.Size(34, 41);
             this.cN4N1.TabIndex = 59;
             this.cN4N1.UseVisualStyleBackColor = false;
+            this.cN4N1.Click += new System.EventHandler(this.cN4N1_Click);
             // 
             // cN44
             // 
@@ -749,8 +779,8 @@
             this.cN44.Name = "cN44";
             this.cN44.Size = new System.Drawing.Size(34, 41);
             this.cN44.TabIndex = 58;
-            this.cN44.Text = "1";
             this.cN44.UseVisualStyleBackColor = false;
+            this.cN44.Click += new System.EventHandler(this.cN44_Click);
             // 
             // cN45
             // 
@@ -762,6 +792,7 @@
             this.cN45.Size = new System.Drawing.Size(34, 41);
             this.cN45.TabIndex = 57;
             this.cN45.UseVisualStyleBackColor = false;
+            this.cN45.Click += new System.EventHandler(this.cN45_Click);
             // 
             // cN40
             // 
@@ -772,8 +803,8 @@
             this.cN40.Name = "cN40";
             this.cN40.Size = new System.Drawing.Size(34, 41);
             this.cN40.TabIndex = 56;
-            this.cN40.Text = "1";
             this.cN40.UseVisualStyleBackColor = false;
+            this.cN40.Click += new System.EventHandler(this.cN40_Click);
             // 
             // cN41
             // 
@@ -784,8 +815,8 @@
             this.cN41.Name = "cN41";
             this.cN41.Size = new System.Drawing.Size(34, 41);
             this.cN41.TabIndex = 55;
-            this.cN41.Text = "1";
             this.cN41.UseVisualStyleBackColor = false;
+            this.cN41.Click += new System.EventHandler(this.cN41_Click);
             // 
             // cN42
             // 
@@ -796,8 +827,8 @@
             this.cN42.Name = "cN42";
             this.cN42.Size = new System.Drawing.Size(34, 41);
             this.cN42.TabIndex = 54;
-            this.cN42.Text = "1";
             this.cN42.UseVisualStyleBackColor = false;
+            this.cN42.Click += new System.EventHandler(this.cN42_Click);
             // 
             // cN43
             // 
@@ -808,8 +839,8 @@
             this.cN43.Name = "cN43";
             this.cN43.Size = new System.Drawing.Size(34, 41);
             this.cN43.TabIndex = 53;
-            this.cN43.Text = "1";
             this.cN43.UseVisualStyleBackColor = false;
+            this.cN43.Click += new System.EventHandler(this.cN43_Click);
             // 
             // cN54
             // 
@@ -820,8 +851,8 @@
             this.cN54.Name = "cN54";
             this.cN54.Size = new System.Drawing.Size(34, 41);
             this.cN54.TabIndex = 65;
-            this.cN54.Text = "1";
             this.cN54.UseVisualStyleBackColor = false;
+            this.cN54.Click += new System.EventHandler(this.cN54_Click);
             // 
             // cN50
             // 
@@ -832,8 +863,8 @@
             this.cN50.Name = "cN50";
             this.cN50.Size = new System.Drawing.Size(34, 41);
             this.cN50.TabIndex = 64;
-            this.cN50.Text = "1";
             this.cN50.UseVisualStyleBackColor = false;
+            this.cN50.Click += new System.EventHandler(this.cN50_Click);
             // 
             // cN52
             // 
@@ -844,8 +875,8 @@
             this.cN52.Name = "cN52";
             this.cN52.Size = new System.Drawing.Size(34, 41);
             this.cN52.TabIndex = 63;
-            this.cN52.Text = "1";
             this.cN52.UseVisualStyleBackColor = false;
+            this.cN52.Click += new System.EventHandler(this.cN52_Click);
             // 
             // cN55
             // 
@@ -856,8 +887,8 @@
             this.cN55.Name = "cN55";
             this.cN55.Size = new System.Drawing.Size(34, 41);
             this.cN55.TabIndex = 62;
-            this.cN55.Text = "1";
             this.cN55.UseVisualStyleBackColor = false;
+            this.cN55.Click += new System.EventHandler(this.cN55_Click);
             // 
             // cN51
             // 
@@ -868,8 +899,8 @@
             this.cN51.Name = "cN51";
             this.cN51.Size = new System.Drawing.Size(34, 41);
             this.cN51.TabIndex = 61;
-            this.cN51.Text = "1";
             this.cN51.UseVisualStyleBackColor = false;
+            this.cN51.Click += new System.EventHandler(this.cN51_Click);
             // 
             // cN53
             // 
@@ -880,8 +911,8 @@
             this.cN53.Name = "cN53";
             this.cN53.Size = new System.Drawing.Size(34, 41);
             this.cN53.TabIndex = 60;
-            this.cN53.Text = "1";
             this.cN53.UseVisualStyleBackColor = false;
+            this.cN53.Click += new System.EventHandler(this.cN53_Click);
             // 
             // cN2N2
             // 
@@ -893,6 +924,7 @@
             this.cN2N2.Size = new System.Drawing.Size(34, 41);
             this.cN2N2.TabIndex = 68;
             this.cN2N2.UseVisualStyleBackColor = false;
+            this.cN2N2.Click += new System.EventHandler(this.cN2N2_Click);
             // 
             // cN1N2
             // 
@@ -904,6 +936,7 @@
             this.cN1N2.Size = new System.Drawing.Size(34, 41);
             this.cN1N2.TabIndex = 67;
             this.cN1N2.UseVisualStyleBackColor = false;
+            this.cN1N2.Click += new System.EventHandler(this.cN1N2_Click);
             // 
             // cN2N1
             // 
@@ -915,17 +948,19 @@
             this.cN2N1.Size = new System.Drawing.Size(34, 41);
             this.cN2N1.TabIndex = 66;
             this.cN2N1.UseVisualStyleBackColor = false;
+            this.cN2N1.Click += new System.EventHandler(this.cN2N1_Click);
             // 
             // cN2N3
             // 
             this.cN2N3.BackColor = System.Drawing.Color.Transparent;
             this.cN2N3.BackgroundImage = global::HexagonChess.Properties.Resources.BKnight;
             this.cN2N3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cN2N3.Location = new System.Drawing.Point(141, 57);
+            this.cN2N3.Location = new System.Drawing.Point(140, 57);
             this.cN2N3.Name = "cN2N3";
             this.cN2N3.Size = new System.Drawing.Size(34, 41);
             this.cN2N3.TabIndex = 69;
             this.cN2N3.UseVisualStyleBackColor = false;
+            this.cN2N3.Click += new System.EventHandler(this.cN2N3_Click);
             // 
             // c2N5
             // 
@@ -937,6 +972,7 @@
             this.c2N5.Size = new System.Drawing.Size(34, 41);
             this.c2N5.TabIndex = 70;
             this.c2N5.UseVisualStyleBackColor = false;
+            this.c2N5.Click += new System.EventHandler(this.c2N5_Click);
             // 
             // c2N3
             // 
@@ -948,6 +984,7 @@
             this.c2N3.Size = new System.Drawing.Size(34, 41);
             this.c2N3.TabIndex = 77;
             this.c2N3.UseVisualStyleBackColor = false;
+            this.c2N3.Click += new System.EventHandler(this.c2N3_Click);
             // 
             // c22
             // 
@@ -959,6 +996,7 @@
             this.c22.Size = new System.Drawing.Size(34, 41);
             this.c22.TabIndex = 76;
             this.c22.UseVisualStyleBackColor = false;
+            this.c22.Click += new System.EventHandler(this.c22_Click);
             // 
             // c23
             // 
@@ -970,6 +1008,7 @@
             this.c23.Size = new System.Drawing.Size(34, 41);
             this.c23.TabIndex = 75;
             this.c23.UseVisualStyleBackColor = false;
+            this.c23.Click += new System.EventHandler(this.c23_Click);
             // 
             // c2N2
             // 
@@ -980,8 +1019,8 @@
             this.c2N2.Name = "c2N2";
             this.c2N2.Size = new System.Drawing.Size(34, 41);
             this.c2N2.TabIndex = 74;
-            this.c2N2.Text = "1";
             this.c2N2.UseVisualStyleBackColor = false;
+            this.c2N2.Click += new System.EventHandler(this.c2N2_Click);
             // 
             // c2N1
             // 
@@ -992,8 +1031,8 @@
             this.c2N1.Name = "c2N1";
             this.c2N1.Size = new System.Drawing.Size(34, 41);
             this.c2N1.TabIndex = 73;
-            this.c2N1.Text = "1";
             this.c2N1.UseVisualStyleBackColor = false;
+            this.c2N1.Click += new System.EventHandler(this.c2N1_Click);
             // 
             // c20
             // 
@@ -1004,8 +1043,8 @@
             this.c20.Name = "c20";
             this.c20.Size = new System.Drawing.Size(34, 41);
             this.c20.TabIndex = 72;
-            this.c20.Text = "1";
             this.c20.UseVisualStyleBackColor = false;
+            this.c20.Click += new System.EventHandler(this.c20_Click);
             // 
             // c21
             // 
@@ -1017,6 +1056,7 @@
             this.c21.Size = new System.Drawing.Size(34, 41);
             this.c21.TabIndex = 71;
             this.c21.UseVisualStyleBackColor = false;
+            this.c21.Click += new System.EventHandler(this.c21_Click);
             // 
             // cN20
             // 
@@ -1027,8 +1067,8 @@
             this.cN20.Name = "cN20";
             this.cN20.Size = new System.Drawing.Size(34, 41);
             this.cN20.TabIndex = 80;
-            this.cN20.Text = "1";
             this.cN20.UseVisualStyleBackColor = false;
+            this.cN20.Click += new System.EventHandler(this.cN20_Click);
             // 
             // cN21
             // 
@@ -1039,8 +1079,8 @@
             this.cN21.Name = "cN21";
             this.cN21.Size = new System.Drawing.Size(34, 41);
             this.cN21.TabIndex = 79;
-            this.cN21.Text = "1";
             this.cN21.UseVisualStyleBackColor = false;
+            this.cN21.Click += new System.EventHandler(this.cN21_Click);
             // 
             // cN22
             // 
@@ -1051,8 +1091,8 @@
             this.cN22.Name = "cN22";
             this.cN22.Size = new System.Drawing.Size(34, 41);
             this.cN22.TabIndex = 78;
-            this.cN22.Text = "1";
             this.cN22.UseVisualStyleBackColor = false;
+            this.cN22.Click += new System.EventHandler(this.cN22_Click);
             // 
             // cN23
             // 
@@ -1064,6 +1104,7 @@
             this.cN23.Size = new System.Drawing.Size(34, 41);
             this.cN23.TabIndex = 83;
             this.cN23.UseVisualStyleBackColor = false;
+            this.cN23.Click += new System.EventHandler(this.cN23_Click);
             // 
             // cN24
             // 
@@ -1075,6 +1116,7 @@
             this.cN24.Size = new System.Drawing.Size(34, 41);
             this.cN24.TabIndex = 82;
             this.cN24.UseVisualStyleBackColor = false;
+            this.cN24.Click += new System.EventHandler(this.cN24_Click);
             // 
             // cN25
             // 
@@ -1086,6 +1128,7 @@
             this.cN25.Size = new System.Drawing.Size(34, 41);
             this.cN25.TabIndex = 81;
             this.cN25.UseVisualStyleBackColor = false;
+            this.cN25.Click += new System.EventHandler(this.cN25_Click);
             // 
             // cN10
             // 
@@ -1121,6 +1164,7 @@
             this.cN14.Size = new System.Drawing.Size(34, 41);
             this.cN14.TabIndex = 84;
             this.cN14.UseVisualStyleBackColor = false;
+            this.cN14.Click += new System.EventHandler(this.cN14_Click);
             // 
             // c1N1
             // 
@@ -1156,6 +1200,7 @@
             this.c13.Size = new System.Drawing.Size(34, 41);
             this.c13.TabIndex = 87;
             this.c13.UseVisualStyleBackColor = false;
+            this.c13.Click += new System.EventHandler(this.c13_Click);
             // 
             // c1N3
             // 
@@ -1167,6 +1212,7 @@
             this.c1N3.Size = new System.Drawing.Size(34, 41);
             this.c1N3.TabIndex = 90;
             this.c1N3.UseVisualStyleBackColor = false;
+            this.c1N3.Click += new System.EventHandler(this.c1N3_Click);
             // 
             // HexChessClient
             // 

@@ -17,31 +17,15 @@ namespace HexagonChess.HexChessClasses.HexChessPieces.Pieces
 
         public override void CalculateMoves()
         {
-            if (ClientManager.Board.Pieces.Values.Where(e => e.IsSelected).FirstOrDefault() != null)
-            {
-                if (ClientManager.Board.Pieces.Values.Where(e => e.IsSelected).First().IsSelected)
-                {
-                    var tmp = ClientManager.Board.Pieces.Values.Where(e => e.IsSelected).First();
-                    foreach (var item in tmp.AvailableMoves)
-                    {
-                        var cell = ClientManager.Board.Cells[$"{item.X};{item.Y}"];
-                        cell.BackgroundImage = null;
-                        cell.Enabled = false;
-                        cell.Visible = false;
-                    }
-                    tmp.AvailableMoves.Clear();
-                    tmp.IsSelected = false;
-                }
-            }
-            AvailableMoves.Clear();
-            IsSelected = true;
+            StartUpCheck();
+
             if (FirstMove)
             {
                 if (!IsBlack)
                 {
                     for (int i = Location.Y - 1; i >= Location.Y - 2; i--)
                     {
-                        if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{i}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{i}").First().Value.Enabled)
+                        if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{i}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{i}").First().Value.Visible)
                             AvailableMoves.Add(new Point(Location.X, i));
                         else break;
                     }
@@ -50,7 +34,7 @@ namespace HexagonChess.HexChessClasses.HexChessPieces.Pieces
                 {
                     for (int i = Location.Y + 1; i <= Location.Y + 2; i++)
                     {
-                        if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{i}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{i}").First().Value.Enabled)
+                        if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{i}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{i}").First().Value.Visible)
                             AvailableMoves.Add(new Point(Location.X, i));
                         else break;
                     }
@@ -60,12 +44,12 @@ namespace HexagonChess.HexChessClasses.HexChessPieces.Pieces
             {
                 if (!IsBlack)
                 {
-                    if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{Location.Y - 1}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{Location.Y - 1}").First().Value.Enabled)
+                    if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{Location.Y - 1}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{Location.Y - 1}").First().Value.Visible)
                         AvailableMoves.Add(new Point(Location.X, Location.Y - 1));
                 }
                 else
                 {
-                    if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{Location.Y + 1}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{Location.Y + 1}").First().Value.Enabled)
+                    if (ClientManager.Board.Cells.ContainsKey($"{Location.X};{Location.Y + 1}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{Location.X};{Location.Y + 1}").First().Value.Visible)
                         AvailableMoves.Add(new Point(Location.X, Location.Y + 1));
                 }
             }

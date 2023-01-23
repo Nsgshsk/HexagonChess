@@ -141,16 +141,66 @@ namespace HexagonChess.HexChessClasses
 
         private void SetUpBoard()
         {
+            foreach (var item in Cells.Values)
+            {
+                if (!item.Enabled)
+                    item.Visible = false;
+            }
             Pieces = new Dictionary<string, HexChessPiece>()
             {
-                { "WPawn4", new Pawn(false, new Point(-1, 2)) },
-                { "WPawn5", new Pawn(false, new Point(0, 1), false) },
-                { "WPawn6", new Pawn(false, new Point(1, 1)) }
+                //white pieces
+                { "WPawn0", new Pawn(false, new Point(-4, 5)) },
+                { "WPawn1", new Pawn(false, new Point(-3, 4)) },
+                { "WPawn2", new Pawn(false, new Point(-2, 3)) },
+                { "WPawn3", new Pawn(false, new Point(-1, 2)) },
+                { "WPawn4", new Pawn(false, new Point(0, 1), false) },
+                { "WPawn5", new Pawn(false, new Point(1, 1)) },
+                { "WPawn6", new Pawn(false, new Point(2, 1)) },
+                { "WPawn7", new Pawn(false, new Point(3, 1)) },
+                { "WPawn8", new Pawn(false, new Point(4, 1)) },
+
+                { "WBishop0", new Bishop(false, new Point(0, 3)) },
+                { "WBishop1", new Bishop(false, new Point(0, 4)) },
+                { "WBishop2", new Bishop(false, new Point(0, 5)) },
+
+                { "WKnight0", new Knight(false, new Point(-2, 5)) },
+                { "WKnight1", new Knight(false, new Point(2, 3)) },
+
+                { "WRook0", new Rook(false, new Point(-3, 5)) },
+                { "WRook1", new Rook(false, new Point(3, 2)) },
+
+                { "WQueen", new Queen(false, new Point(-1, 5))},
+                { "WKing", new King(false, new Point(1, 4)) },
+
+                //black pieces
+                { "BPawn0", new Pawn(true, new Point(-4, -1)) },
+                { "BPawn1", new Pawn(true, new Point(-3, -1)) },
+                { "BPawn2", new Pawn(true, new Point(-2, -1)) },
+                { "BPawn3", new Pawn(true, new Point(-1, -1)) },
+                { "BPawn4", new Pawn(true, new Point(0, -1), false) },
+                { "BPawn5", new Pawn(true, new Point(1, -2)) },
+                { "BPawn6", new Pawn(true, new Point(2, -3)) },
+                { "BPawn7", new Pawn(true, new Point(3, -4)) },
+                { "BPawn8", new Pawn(true, new Point(4, -5)) },
+
+                { "BBishop0", new Bishop(true, new Point(0, -3)) },
+                { "BBishop1", new Bishop(true, new Point(0, -4)) },
+                { "BBishop2", new Bishop(true, new Point(0, -5)) },
+
+                { "BKnight0", new Knight(true, new Point(-2, -3)) },
+                { "BKnight1", new Knight(true, new Point(2, -5)) },
+
+                { "BRook0", new Rook(true, new Point(-3, -2)) },
+                { "BRook1", new Rook(true, new Point(3, -5)) },
+
+                { "BQueen", new Queen(true, new Point(-1, -4))},
+                { "BKing", new King(true, new Point(1, -5)) }
             };
-            foreach (var item in Pieces.Values)
-            {
-                cells.Where(e => e.Key == $"{item.Location.X};{item.Location.Y}").First().Value.BackColor = Color.Red;
-            }
+            EnableWhite();
+            //foreach (var item in Pieces.Values)
+            //{
+            //    cells.Where(e => e.Key == $"{item.Location.X};{item.Location.Y}").First().Value.BackColor = Color.Red;
+            //}
         }
 
         public void AddMoves(int x, int y)
@@ -161,33 +211,46 @@ namespace HexagonChess.HexChessClasses
             {
                 var tmp = cells[$"{item.X};{item.Y}"];
                 tmp.Visible = true;
-                tmp.BackgroundImage = Resources.point;
                 tmp.Enabled = true;
+                tmp.BackColor = Color.Transparent;
+                var tmpPiece = Pieces.Where(e => e.Value.Location.X == item.X && e.Value.Location.Y == item.Y).FirstOrDefault().Value;
+                if (tmpPiece == default(HexChessPiece)) tmp.BackgroundImage = Resources.point;
+                else tmp.BackColor = Color.Green;
             }
         }
 
         public void MovePiece(int x, int y)
         {
             var selectedPiece = Pieces.Where(e => e.Value.IsSelected).First().Value;
+            var targetPiece = Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault();
             var currentCell = cells[$"{selectedPiece.Location.X};{selectedPiece.Location.Y}"];
             var targetCell = cells[$"{x};{y}"];
+
+            if (targetPiece != default(HexChessPiece))
+            {
+                Pieces.Remove(Pieces.Where(e => e.Value == targetPiece).First().Key);
+            }
 
             targetCell.BackgroundImage = selectedPiece.Image;
             targetCell.Enabled = true;
             targetCell.Visible = true;
+            targetCell.BackColor = Color.Transparent;
 
             currentCell.BackgroundImage = null;
             currentCell.Enabled = false;
             currentCell.Visible = false;
+            currentCell.BackColor = Color.Transparent;
 
             foreach (var item in selectedPiece.AvailableMoves)
             {
                 if (item.X != x || item.Y != y)
-                { 
+                {
+                    var tmpPiece = Pieces.Values.Where(e => e.Location.X == item.X && e.Location.Y == item.Y).FirstOrDefault();
                     var tmp = cells[$"{item.X};{item.Y}"];
-                    tmp.BackgroundImage = null;
                     tmp.Enabled = false;
                     tmp.Visible = false;
+                    tmp.BackColor = Color.Transparent;
+                    if (tmpPiece == default(HexChessPiece)) { tmp.BackgroundImage = null; }
                 }
             }
 
@@ -195,6 +258,33 @@ namespace HexagonChess.HexChessClasses
             selectedPiece.IsSelected = false;
             if (selectedPiece.FirstMove)
                 selectedPiece.FirstMove = false;
+
+            if (ClientManager.BlackTurn) { EnableWhite(); ClientManager.BlackTurn = false; }
+            else { EnableBlack(); ClientManager.BlackTurn = true; }
+        }
+
+        private void EnableWhite()
+        {
+            foreach (var item in pieces.Values)
+            {
+                var cell = cells[$"{item.Location.X};{item.Location.Y}"];
+                cell.Visible = true;
+                cell.BackColor = Color.Transparent;
+                if (!item.IsBlack) cell.Enabled = true;
+                else cell.Enabled = false;
+            }
+
+        }
+        private void EnableBlack()
+        {
+            foreach (var item in pieces.Values)
+            {
+                var cell = cells[$"{item.Location.X};{item.Location.Y}"];
+                cell.Visible = true;
+                cell.BackColor = Color.Transparent;
+                if (item.IsBlack) cell.Enabled = true;
+                else cell.Enabled = false;
+            }
         }
     }
 }
