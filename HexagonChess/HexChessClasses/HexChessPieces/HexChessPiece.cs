@@ -11,6 +11,7 @@ namespace HexagonChess.HexChessClasses.HexChessPieces
     {
         private bool isSelected;
         private bool isBlack;
+        private bool isPawn;
         private Bitmap image;
 
         private Point location;
@@ -19,15 +20,18 @@ namespace HexagonChess.HexChessClasses.HexChessPieces
         private bool canMoveHorizontal;
 
         private bool firstMove;
+        private bool lastMove;
         private List<Point> availableMoves;
 
-        protected HexChessPiece(bool isBlack, Point location, bool canMoveDiaganol, bool canMoveHorizontal ,bool firstMove = false)
+        protected HexChessPiece(bool isBlack, Point location, bool canMoveDiaganol, bool canMoveHorizontal, bool isPawn = false ,bool firstMove = false)
         {
+            IsPawn = isPawn;
             IsBlack = isBlack;
             Location = location;
             CanMoveDiaganol = canMoveDiaganol;
             CanMoveHorizontal = canMoveHorizontal;
             FirstMove = firstMove;
+            LastMove = firstMove;
             IsSelected = false;
             AvailableMoves = new List<Point>();
         }
@@ -40,6 +44,8 @@ namespace HexagonChess.HexChessClasses.HexChessPieces
         public List<Point> AvailableMoves { get => availableMoves; protected set => availableMoves = value; }
         public bool IsSelected { get => isSelected; set => isSelected = value; }
         public Bitmap Image { get => image; protected set => image = value; }
+        public bool LastMove { get => lastMove; set => lastMove = value; }
+        public bool IsPawn { get => isPawn; private set => isPawn = value; }
 
         public abstract void CalculateMoves();
 

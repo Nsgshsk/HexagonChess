@@ -223,12 +223,19 @@ namespace HexagonChess.HexChessClasses
         {
             var selectedPiece = Pieces.Where(e => e.Value.IsSelected).First().Value;
             var targetPiece = Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault();
+            targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y + 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && !selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
+            targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y - 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
             var currentCell = cells[$"{selectedPiece.Location.X};{selectedPiece.Location.Y}"];
             var targetCell = cells[$"{x};{y}"];
 
             if (targetPiece != default(HexChessPiece))
             {
                 Pieces.Remove(Pieces.Where(e => e.Value == targetPiece).First().Key);
+                var targetPieceCell = ClientManager.Board.Cells[$"{targetPiece.Location.X};{targetPiece.Location.Y}"];
+                targetPieceCell.BackgroundImage = null;
+                targetPieceCell.Enabled = false;
+                targetPieceCell.Visible = false;
+                targetPieceCell.BackColor = Color.Transparent;
             }
 
             targetCell.BackgroundImage = selectedPiece.Image;
@@ -256,8 +263,9 @@ namespace HexagonChess.HexChessClasses
 
             selectedPiece.Location = new Point(x, y);
             selectedPiece.IsSelected = false;
-            if (selectedPiece.FirstMove)
-                selectedPiece.FirstMove = false;
+            
+            selectedPiece.LastMove = selectedPiece.FirstMove;        
+            if (selectedPiece.FirstMove) selectedPiece.FirstMove = false;
 
             if (ClientManager.BlackTurn) { EnableWhite(); ClientManager.BlackTurn = false; }
             else { EnableBlack(); ClientManager.BlackTurn = true; }

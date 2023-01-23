@@ -11,7 +11,7 @@ namespace HexagonChess.HexChessClasses.HexChessPieces.Pieces
     {
         public Queen(bool isBlack, Point location) : base(isBlack, location, true, true)
         {
-            Image = isBlack ? Resources.WQueen : Resources.BQueen;
+            Image = !isBlack ? Resources.WQueen : Resources.BQueen;
         }
 
         public override void CalculateMoves()
