@@ -23,7 +23,7 @@ namespace HexagonChess.HexChessClasses.HexChessPieces
         private bool lastMove;
         private List<Point> availableMoves;
 
-        protected HexChessPiece(bool isBlack, Point location, bool canMoveDiaganol, bool canMoveHorizontal, bool isPawn = false ,bool firstMove = false)
+        protected HexChessPiece(bool isBlack, Point location, bool canMoveDiaganol, bool canMoveHorizontal, bool isPawn = false, bool firstMove = false)
         {
             IsPawn = isPawn;
             IsBlack = isBlack;

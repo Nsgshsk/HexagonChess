@@ -18,79 +18,51 @@ namespace HexagonChess.HexChessClasses.HexChessPieces.Pieces
         {
             StartUpCheck();
 
+            void CheckMove(int x, int y)
+            {
+                if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
+                    AvailableMoves.Add(new Point(x, y));
+                else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
+                    AvailableMoves.Add(new Point(x, y));
+            }
+
             //Horizontal Moves
             int x = Location.X + 1, y = Location.Y - 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X - 1; y = Location.Y + 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X; y = Location.Y + 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X; y = Location.Y - 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X + 1; y = Location.Y;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X - 1; y = Location.Y;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             //Diagonal Moves
             x = Location.X + 1; y = Location.Y - 2;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X - 1; y = Location.Y + 2;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X - 1; y = Location.Y - 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X + 1; y = Location.Y + 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X + 2; y = Location.Y - 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
 
             x = Location.X - 2; y = Location.Y + 1;
-            if (ClientManager.Board.Cells.ContainsKey($"{x};{y}") && !ClientManager.Board.Cells.Where(e => e.Key == $"{x};{y}").First().Value.Visible)
-                AvailableMoves.Add(new Point(x, y));
-            else if (ClientManager.Board.Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault() != default && ClientManager.Board.Pieces.Where(e => e.Value.Location.X == x && e.Value.Location.Y == y).First().Value.IsBlack != ClientManager.BlackTurn)
-                AvailableMoves.Add(new Point(x, y));
+            CheckMove(x, y);
         }
     }
 }

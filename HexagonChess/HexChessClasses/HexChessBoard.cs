@@ -225,8 +225,11 @@ namespace HexagonChess.HexChessClasses
         {
             var selectedPiece = Pieces.Where(e => e.Value.IsSelected).First().Value;
             var targetPiece = Pieces.Values.Where(e => e.Location.X == x && e.Location.Y == y).FirstOrDefault();
-            targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y + 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && !selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
-            targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y - 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
+            if (selectedPiece.IsPawn)
+            {
+                targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y + 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && !selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
+                targetPiece = targetPiece == default(HexChessPiece) ? Pieces.Values.Where(e => e.IsPawn && e.Location.X == x && e.Location.Y == y - 1 && e.LastMove && e.IsBlack != ClientManager.BlackTurn && selectedPiece.IsBlack).FirstOrDefault() : targetPiece;
+            }
             var currentCell = cells[$"{selectedPiece.Location.X};{selectedPiece.Location.Y}"];
             var targetCell = cells[$"{x};{y}"];
 
