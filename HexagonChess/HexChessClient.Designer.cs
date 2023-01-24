@@ -1319,6 +1319,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(496, 586);
             this.Name = "HexChessClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hexagon Chess";
             this.ResumeLayout(false);
 

@@ -11,11 +11,13 @@ namespace HexagonChess.HexChessClasses
 {
     public class HexChessBoard
     {
+        private readonly HexChessClient client;
         private Dictionary<string, Button> cells;
         private Dictionary<string, HexChessPiece> pieces;
 
         public HexChessBoard(HexChessClient tmp)
         {
+            this.client = tmp;
             Cells = new Dictionary<string, Button>
             {
                 //
@@ -267,6 +269,9 @@ namespace HexagonChess.HexChessClasses
             selectedPiece.LastMove = selectedPiece.FirstMove;        
             if (selectedPiece.FirstMove) selectedPiece.FirstMove = false;
 
+            PiecePromotion();
+            WinCondition();
+
             if (ClientManager.BlackTurn) { EnableWhite(); ClientManager.BlackTurn = false; }
             else { EnableBlack(); ClientManager.BlackTurn = true; }
         }
@@ -292,6 +297,66 @@ namespace HexagonChess.HexChessClasses
                 cell.BackColor = Color.Transparent;
                 if (item.IsBlack) cell.Enabled = true;
                 else cell.Enabled = false;
+            }
+        }
+
+        private void PiecePromotion()
+        {
+            Dictionary<string, Point> promtionCells = new Dictionary<string, Point>();
+            if (!ClientManager.BlackTurn)
+            {
+                int r = 0, s = 5;
+                for (int q = -5; q <= 0; q++)
+                {
+                    r = -q - s;
+                    promtionCells.Add($"{q};{r}", new Point(q, r));
+                }
+                for (int q = 1; q <= 5; q++)
+                {
+                    promtionCells.Add($"{q};{r}", new Point(q, r));
+                }
+            }
+            else
+            {
+                int r = 0, s = -5;
+                for (int q = 5; q >= 0; q--)
+                {
+                    r = -q - s;
+                    promtionCells.Add($"{q};{r}", new Point(q, r));
+                }
+                for (int q = -1; q >= -5; q--)
+                {
+                    promtionCells.Add($"{q};{r}", new Point(q, r));
+                }
+            }
+
+            HexChessPiece? promotionPawn = default(HexChessPiece);
+            foreach (var location in promtionCells.Values)
+            {
+                promotionPawn = Pieces.Values.Where(e => e.IsPawn && e.IsBlack == ClientManager.BlackTurn && e.Location.X == location.X && e.Location.Y == location.Y).FirstOrDefault();
+                if (promotionPawn != default(HexChessPiece)) break;
+            }
+
+            if (promotionPawn != default(HexChessPiece))
+            {
+                Pieces.Remove(Pieces.Where(e => e.Value == promotionPawn).First().Key);
+
+                var promotedPiece = new Queen(promotionPawn.IsBlack, promotionPawn.Location);
+                Pieces.Add($"{ClientManager.NumPiece++}Queen", promotedPiece);
+
+                var targetPieceCell = ClientManager.Board.Cells[$"{promotionPawn.Location.X};{promotionPawn.Location.Y}"];
+                targetPieceCell.BackgroundImage = promotedPiece.Image;
+            }
+        }
+        private void WinCondition()
+        {
+            var kingPieces = Pieces.Where(e => e.Key.Contains("King"));
+            if (kingPieces.Count() < 2)
+            {
+                var tmp = kingPieces.First().Value;
+                string team = !tmp.IsBlack ? "White" : "Black";
+                MessageBox.Show($"King was defeated!\n{team} wins the game!", $"{team} wins!");
+                client.Close();
             }
         }
     }
